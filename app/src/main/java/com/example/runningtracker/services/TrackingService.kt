@@ -47,12 +47,12 @@ class TrackingService:LifecycleService() {
 
     companion object{
         val isTracking=MutableLiveData<Boolean>()
-        val pathPoint=MutableLiveData<Polylines>()
+        val pathPoints=MutableLiveData<Polylines>()
     }
 
     private fun postInitialValues(){
         isTracking.postValue(false)
-        pathPoint.postValue(mutableListOf())
+        pathPoints.postValue(mutableListOf())
     }
 
     override fun onCreate() {
@@ -74,10 +74,12 @@ class TrackingService:LifecycleService() {
                         isFirstRun=false
                     }else{
                         Timber.d("Resuming service")
+                        startForegroundService()
                     }
                 }
                 ACTION_PAUSE_SERVICE->{
                     Timber.d("Paused service")
+                    pauseService()
                 }
                 ACTION_STOP_SERVICE->{
                     Timber.d("Stopped service")
@@ -85,6 +87,10 @@ class TrackingService:LifecycleService() {
             }
         }
         return super.onStartCommand(intent, flags, startId)
+    }
+
+    private fun pauseService(){
+        isTracking.postValue(false)
     }
 
     @SuppressLint("MissingPermission")
@@ -124,17 +130,17 @@ class TrackingService:LifecycleService() {
     private fun addPathPoint(location:Location){
         location?.let {
             val pos=LatLng(location.latitude,location.longitude)
-            pathPoint.value?.apply {
+            pathPoints.value?.apply {
                 last().add(pos)
-                pathPoint.postValue(this)
+                pathPoints.postValue(this)
             }
         }
     }
 
-    private fun addEmptyPolyline()= pathPoint.value?.apply {
+    private fun addEmptyPolyline()= pathPoints.value?.apply {
         add(mutableListOf())
-        pathPoint.postValue(this)
-    } ?: pathPoint.postValue(mutableListOf(mutableListOf()))
+        pathPoints.postValue(this)
+    } ?: pathPoints.postValue(mutableListOf(mutableListOf()))
 
     private fun startForegroundService(){
 
