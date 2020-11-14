@@ -7,11 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.runningtracker.R
+import com.example.runningtracker.adapters.RunAdapter
 import com.example.runningtracker.databinding.FragmentRunBinding
-import com.example.runningtracker.databinding.FragmentSetupBinding
 import com.example.runningtracker.ui.viewmodels.MainViewModel
 import com.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
 import com.other.TrackingUtility
@@ -26,6 +29,8 @@ class RunFragment:Fragment(R.layout.fragment_run),EasyPermissions.PermissionCall
     private val binding get() = _binding!!
     private val viewModel:MainViewModel by viewModels()
 
+    private lateinit var runAdapter: RunAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding= FragmentRunBinding.inflate(inflater,container,false)
         return binding.root
@@ -34,6 +39,12 @@ class RunFragment:Fragment(R.layout.fragment_run),EasyPermissions.PermissionCall
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requestPermissions()
+        setupRecyclerView()
+
+        viewModel.runsSortedByDate.observe(viewLifecycleOwner, Observer {
+            runAdapter.submitList(it)
+        })
+
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
         }
@@ -42,6 +53,14 @@ class RunFragment:Fragment(R.layout.fragment_run),EasyPermissions.PermissionCall
     override fun onDestroyView() {
         super.onDestroyView()
         _binding=null
+    }
+
+    private fun setupRecyclerView(){
+        binding.rvRuns.apply {
+            runAdapter= RunAdapter()
+            adapter=runAdapter
+            layoutManager=LinearLayoutManager(requireContext())
+        }
     }
 
     private fun requestPermissions(){
