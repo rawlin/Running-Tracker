@@ -18,7 +18,6 @@ class RunAdapter : RecyclerView.Adapter<RunAdapter.RunViewHolder>() {
 
     inner class  RunViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val binding= ItemRunBinding.bind(itemView)
-        val image=binding.ivRunImage
 
     }
 
