@@ -10,6 +10,7 @@ import com.example.runningtracker.R
 import com.example.runningtracker.databinding.ActivityMainBinding
 import com.example.runningtracker.other.Constants.ACTION_SHOW_TRACKING_FRAGMENT
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         val navHostFragment=supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         binding.bottomNavigationView.setupWithNavController(navHostFragment.navController)
+        bottomNavigationView.setOnNavigationItemReselectedListener { /*NO-OP*/ }
 
         navHostFragment.navController
                 .addOnDestinationChangedListener { _, destination, _ ->
