@@ -25,9 +25,11 @@ constructor(
 
     fun getTotalAvgSpeed()=runDAO.getTotalAvgSpeed()
 
+    fun getTotalDistance() = runDAO.getTotalDistance()
+
     fun getTotalCaloriesBurned()=runDAO.getTotalCaloriesBurned()
 
-    fun getTotaltimeInMillis()=runDAO.getAllRunsSortedByTimeInMillis()
+    fun getTotalTimeInMillis()=runDAO.getTotalTimeInMillis()
 
 
 }
