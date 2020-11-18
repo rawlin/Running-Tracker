@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.runningtracker.R
 import com.example.runningtracker.databinding.ItemRunBinding
 import com.example.runningtracker.db.Run
-import com.other.TrackingUtility
+import com.example.runningtracker.other.TrackingUtility
 import java.text.SimpleDateFormat
 import java.util.*
 

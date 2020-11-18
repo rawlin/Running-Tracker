@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
-import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -14,9 +12,9 @@ import com.example.runningtracker.R
 import com.example.runningtracker.databinding.FragmentSetupBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
-import com.other.Constants.KEY_FIRST_TIME_TOGGLE
-import com.other.Constants.KEY_NAME
-import com.other.Constants.KEY_WEIGHT
+import com.example.runningtracker.other.Constants.KEY_FIRST_TIME_TOGGLE
+import com.example.runningtracker.other.Constants.KEY_NAME
+import com.example.runningtracker.other.Constants.KEY_WEIGHT
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.NumberFormatException
 import javax.inject.Inject

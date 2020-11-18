@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.runningtracker.R
 import com.example.runningtracker.databinding.FragmentSettingsBinding
-import com.example.runningtracker.databinding.FragmentSetupBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
-import com.other.Constants.KEY_NAME
-import com.other.Constants.KEY_WEIGHT
+import com.example.runningtracker.other.Constants.KEY_NAME
+import com.example.runningtracker.other.Constants.KEY_WEIGHT
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

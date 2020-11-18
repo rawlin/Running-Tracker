@@ -1,4 +1,4 @@
-package com.other
+package com.example.runningtracker.other
 
 import android.Manifest
 import android.content.Context

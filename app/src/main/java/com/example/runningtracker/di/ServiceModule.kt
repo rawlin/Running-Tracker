@@ -7,7 +7,7 @@ import androidx.core.app.NotificationCompat
 import com.example.runningtracker.R
 import com.example.runningtracker.ui.MainActivity
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.other.Constants
+import com.example.runningtracker.other.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

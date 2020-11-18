@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -17,9 +16,9 @@ import com.example.runningtracker.R
 import com.example.runningtracker.adapters.RunAdapter
 import com.example.runningtracker.databinding.FragmentRunBinding
 import com.example.runningtracker.ui.viewmodels.MainViewModel
-import com.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
-import com.other.SortType
-import com.other.TrackingUtility
+import com.example.runningtracker.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
+import com.example.runningtracker.other.SortType
+import com.example.runningtracker.other.TrackingUtility
 import dagger.hilt.android.AndroidEntryPoint
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions

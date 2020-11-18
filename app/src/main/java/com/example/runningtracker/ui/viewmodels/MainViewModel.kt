@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.runningtracker.db.Run
 import com.example.runningtracker.repositories.MainRepository
-import com.other.SortType
+import com.example.runningtracker.other.SortType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

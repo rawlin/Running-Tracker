@@ -5,11 +5,11 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.runningtracker.db.RunningDatabase
-import com.other.Constants.DATABASE_NAME
-import com.other.Constants.KEY_FIRST_TIME_TOGGLE
-import com.other.Constants.KEY_NAME
-import com.other.Constants.KEY_WEIGHT
-import com.other.Constants.SHARED_PREFERENCES_NAME
+import com.example.runningtracker.other.Constants.DATABASE_NAME
+import com.example.runningtracker.other.Constants.KEY_FIRST_TIME_TOGGLE
+import com.example.runningtracker.other.Constants.KEY_NAME
+import com.example.runningtracker.other.Constants.KEY_WEIGHT
+import com.example.runningtracker.other.Constants.SHARED_PREFERENCES_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
